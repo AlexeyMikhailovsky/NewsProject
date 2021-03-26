@@ -1,35 +1,31 @@
 package by.htp.ll.controller.command.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import by.htp.ll.bean.Book;
 import by.htp.ll.controller.command.Command;
 
-public class Logination implements Command{
+public class GoToIndexPage implements Command{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//UserLoginationInfo...
 		
-		System.out.println(request.getParameter("login"));
+		List<Book> newBooks = new ArrayList<Book>();
 		
-		boolean result = true;
-		//error-redirect norm-forward
-		RequestDispatcher requestDispatcher = null;
+		newBooks.add(new Book("Java"));
+		newBooks.add(new Book("C++"));
+		newBooks.add(new Book("C#"));
 		
+		request.setAttribute("newBooks", newBooks);
 		
-		if(result) {
-			requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
-		}else {
-			request.setAttribute("message", "wrong login or password");
-			requestDispatcher = request.getRequestDispatcher("index.jsp");
-			
-		}
-		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main_index.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

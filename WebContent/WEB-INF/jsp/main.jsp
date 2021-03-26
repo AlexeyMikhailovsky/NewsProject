@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; 
-charset=utf-8" import="by.htp.ll.bean.User"
+charset=utf-8" 
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,22 +8,9 @@ charset=utf-8" import="by.htp.ll.bean.User"
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%
-	User userX = (User) request.getAttribute("user");
-			if (userX == null){
-		userX = new User();
-			}
-			out.println(userX.getName());
-	%>
-	<br />
-	<%
-	out.println(request.getParameter("login"));
-	%>
-	
-	<jsp:useBean id="user" class="by.htp.ll.bean.User" scope="request" />
-	
-	<jsp:getProperty property="name" name="user"/>
+<h1 align="center">
+	!!! Welcome !!!
+</h1>
 
 </body>
 </html>

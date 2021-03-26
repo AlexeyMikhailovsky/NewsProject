@@ -18,11 +18,16 @@ public class SaveNewUser implements Command{
 		//request.getParameter("surname");
 		
 		RegistrationInfo regInfo = new RegistrationInfo();
-		System.out.println("class SaveNewUser implements Command");
 		//regInfo - show in console
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-		requestDispatcher.forward(request, response);
+		System.out.println("class SaveNewUser implements Command");
+	
+		request.setAttribute("message", "Registration OK");
+		
+		response.sendRedirect("Controller?command=gotoindexpage&message=Registration ok");
+		
+		//RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+		//requestDispatcher.forward(request, response);
 	}
 
 }

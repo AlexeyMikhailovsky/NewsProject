@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import by.htp.ll.bean.User;
 import by.htp.ll.controller.command.Command;
 import by.htp.ll.controller.command.CommandProvider;
 
