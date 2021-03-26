@@ -25,7 +25,7 @@ public class SaveNewUser implements Command{
 		request.setAttribute("message", "Registration OK");
 		
 		response.sendRedirect("Controller?command=gotoindexpage&message=Registration ok");
-		//dododo
+		
 		//RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
 		//requestDispatcher.forward(request, response);
 	}
