@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import by.htp.ll.controller.command.impl.GoToIndexPage;
+import by.htp.ll.controller.command.impl.GoToMainPage;
 import by.htp.ll.controller.command.impl.GoToRegistrationPage;
 import by.htp.ll.controller.command.impl.Logination;
 import by.htp.ll.controller.command.impl.SaveNewUser;
@@ -16,6 +17,7 @@ public class CommandProvider {
 		commands.put(CommandName.REGISTRATION, new GoToRegistrationPage());
 		commands.put(CommandName.SAVENEWUSER ,new SaveNewUser());
 		commands.put(CommandName.GOTOINDEXPAGE, new GoToIndexPage());
+		commands.put(CommandName.GOTOMAINPAGE, new GoToMainPage());
 	}
 	
 	public Command takeCommand(String name) {

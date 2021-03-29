@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-		String message = (String)request.getParameter("message");
+		String message = (String)request.getAttribute("message");
 	
 		if(message != null){
 		
@@ -37,9 +37,11 @@
 	
 	<%
 		List<Book> books = (List<Book>)request.getAttribute("newBooks");
+	if(books != null){
 		for(int i=0;i<books.size();i++){
 			out.write(books.get(i).getTitle());
 		}
+	}
 	%>
 	
 </body>
