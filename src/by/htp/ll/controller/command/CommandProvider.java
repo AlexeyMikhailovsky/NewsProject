@@ -7,6 +7,7 @@ import by.htp.ll.controller.command.impl.GoToIndexPage;
 import by.htp.ll.controller.command.impl.GoToMainPage;
 import by.htp.ll.controller.command.impl.GoToRegistrationPage;
 import by.htp.ll.controller.command.impl.Logination;
+import by.htp.ll.controller.command.impl.Logout;
 import by.htp.ll.controller.command.impl.SaveNewUser;
 
 public class CommandProvider {
@@ -18,6 +19,7 @@ public class CommandProvider {
 		commands.put(CommandName.SAVENEWUSER ,new SaveNewUser());
 		commands.put(CommandName.GOTOINDEXPAGE, new GoToIndexPage());
 		commands.put(CommandName.GOTOMAINPAGE, new GoToMainPage());
+		commands.put(CommandName.LOGOUT, new Logout());
 	}
 	
 	public Command takeCommand(String name) {

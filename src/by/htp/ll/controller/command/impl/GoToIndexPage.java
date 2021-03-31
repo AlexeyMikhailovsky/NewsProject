@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,6 +25,17 @@ public class GoToIndexPage implements Command{
 		newBooks.add(new Book("C#"));
 		
 		request.setAttribute("newBooks", newBooks);
+		
+		
+		Cookie[] cookies = request.getCookies();
+		for(Cookie c : cookies) {
+			System.out.println("---------------------------------");
+			System.out.println(c.getName() + " - " + c.getValue());
+		}
+		
+		Cookie newCookie = new Cookie("nnn","xxx");
+		response.addCookie(newCookie);
+		
 		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main_index.jsp");
 		requestDispatcher.forward(request, response);

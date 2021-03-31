@@ -16,13 +16,20 @@ public class GoToMainPage implements Command{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		boolean isAuth = (boolean)session.getAttribute("auth");
-		
-		if(isAuth) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
-			requestDispatcher.forward(request, response);
-		}else {
-			//error
+		if(session == null) {
+			response.sendRedirect("Controller?command=gotoindexpage&message=nosession");
+			return;
 		}
+		
+		Boolean isAuth = (Boolean) session.getAttribute("auth");
+		
+		if(isAuth == null || !isAuth) {
+			response.sendRedirect("Controller?command=gotoindexpage&message=notauth");
+			return;
+		}
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
+		requestDispatcher.forward(request, response);
+		
 	}
 }

@@ -34,19 +34,18 @@ public class Logination implements Command{
 		try {
 			user = userService.authorization(login, password);
 			if(user == null ) {
-				request.setAttribute("message", "wrong2");
-				requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main_index.jsp");
-			}else {
-				HttpSession session = request.getSession(true);
-				session.setAttribute("auth", true);
-				response.sendRedirect("Controller?command=gotomainpage");
+				response.sendRedirect("Controller?command=gotoindexpage&message=wrong2");
+				return;
 			}
+			
+			HttpSession session = request.getSession(true);
+			session.setAttribute("auth", true);
+			response.sendRedirect("Controller?command=gotomainpage");
+			
 		}catch(ServiceException e) {
-			request.setAttribute("message", "wrong");
-			requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/main_index.jsp");
+			response.sendRedirect("Controller?command=gotoindexpage&message=wrongincatch");
 		}
 		
-		//requestDispatcher.forward(request, response);
 	}
 
 }

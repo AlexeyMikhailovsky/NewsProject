@@ -12,5 +12,9 @@ charset=utf-8"
 	!!! Welcome !!!
 </h1>
 
+<br/>
+
+<a href="Controller?command=logout">logout</a>
+
 </body>
 </html>
