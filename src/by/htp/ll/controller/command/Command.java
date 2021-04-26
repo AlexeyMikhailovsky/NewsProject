@@ -6,7 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import by.htp.ll.service.ServiceException;
+
 public interface Command {
 
-	void execute(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void execute(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, ServiceException;
 }

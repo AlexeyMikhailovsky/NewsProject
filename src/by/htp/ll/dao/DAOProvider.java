@@ -1,6 +1,6 @@
 package by.htp.ll.dao;
 
-import by.htp.ll.dao.impl.SQLLibraryDAO;
+import by.htp.ll.dao.impl.SQLNewsDAO;
 import by.htp.ll.dao.impl.SQLUserDAO;
 
 public final class DAOProvider {
@@ -8,7 +8,7 @@ public final class DAOProvider {
 	private static final DAOProvider instance = new DAOProvider();
 	
 	private final UserDAO userDAO = new SQLUserDAO();
-	private final LibraryDAO libraryDAO = new SQLLibraryDAO();
+	private final NewsDAO newsDAO = new SQLNewsDAO();
 
 	private DAOProvider() {}
 	
@@ -20,8 +20,8 @@ public final class DAOProvider {
 		return userDAO;
 	}
 
-	public LibraryDAO getLibraryDAO() {
-		return libraryDAO;
+	public NewsDAO getNewsDAO() {
+		return newsDAO;
 	}
 	
 	

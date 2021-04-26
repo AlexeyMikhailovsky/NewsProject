@@ -25,18 +25,6 @@ public class Controller extends HttpServlet {
 
 	}
 
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		super.init(config);
-	}
-
-	@Override
-	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.service(req, res);
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		process(request,response);
@@ -49,6 +37,8 @@ public class Controller extends HttpServlet {
 	
 	private void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
+		try {
+		
 		String name;
 		Command command; 
 		
@@ -56,6 +46,10 @@ public class Controller extends HttpServlet {
 		command = provider.takeCommand(name);
 		
 		command.execute(request,response);
+		}catch(Exception e) {
+			//response.sendRedirect("Controller?command=go_to_exception_page&message=" + e.getMessage());	
+			e.printStackTrace();
+		}
 	}
 
 }

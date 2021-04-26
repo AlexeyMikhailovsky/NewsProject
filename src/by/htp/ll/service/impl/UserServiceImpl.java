@@ -14,9 +14,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User authorization(String login, String password) throws ServiceException {
 		//validation
-		if(login == null || "".equals(login)) {
-			throw new ServiceException("wrong login or password");
-		}
+		//if(login == null || "".equals(login)) {
+		//	throw new ServiceException("wrong login or password");
+		//}
 		
 		DAOProvider provider = DAOProvider.getInstance();
 		UserDAO userDAO = provider.getUserDAO();
@@ -31,9 +31,17 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean registration(RegistrationInfo regInfo) {
-		// TODO Auto-generated method stub
-		return false;
+	public void registration(User userInfo) throws ServiceException {
+		DAOProvider provider = DAOProvider.getInstance();
+		UserDAO userDAO = provider.getUserDAO();
+		
+		try {
+			
+			userDAO.registration(userInfo);
+		}catch (DAOException e) {
+			throw new ServiceException (e.getMessage(), e);
+		}
+		
 	}
 
 }

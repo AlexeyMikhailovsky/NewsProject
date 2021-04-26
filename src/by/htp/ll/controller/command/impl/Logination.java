@@ -28,8 +28,9 @@ public class Logination implements Command{
 		
 		ServiceProvider provider = ServiceProvider.getInstance();
 		UserService userService = provider.getUserService();
-		//error-redirect norm-forward
+
 		User user = null;
+		
 		RequestDispatcher requestDispatcher = null;
 		try {
 			user = userService.authorization(login, password);
@@ -40,6 +41,8 @@ public class Logination implements Command{
 			
 			HttpSession session = request.getSession(true);
 			session.setAttribute("auth", true);
+			session.setAttribute("name", user.getNickname());
+			session.setAttribute("role", user.getRole());
 			response.sendRedirect("Controller?command=gotomainpage");
 			
 		}catch(ServiceException e) {

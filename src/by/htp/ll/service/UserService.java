@@ -5,6 +5,7 @@ import by.htp.ll.bean.User;
 
 public interface UserService {
 
-	User authorization (String login, String passport) throws ServiceException;
-	boolean registration (RegistrationInfo regInfo)throws ServiceException;
+	User authorization (String login, String password) throws ServiceException;
+	void registration (User userInfo)throws ServiceException;
+	
 }

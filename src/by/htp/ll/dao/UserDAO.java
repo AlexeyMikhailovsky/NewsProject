@@ -6,6 +6,6 @@ import by.htp.ll.bean.User;
 public interface UserDAO {
 
 	User authorization (String login, String password)throws DAOException;
-	boolean registration (RegistrationInfo regInfo)throws DAOException;
+	void registration (User userInfo)throws DAOException;
 	
 }
