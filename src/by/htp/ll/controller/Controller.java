@@ -46,9 +46,9 @@ public class Controller extends HttpServlet {
 		command = provider.takeCommand(name);
 		
 		command.execute(request,response);
+		
 		}catch(Exception e) {
-			//response.sendRedirect("Controller?command=go_to_exception_page&message=" + e.getMessage());	
-			e.printStackTrace();
+			response.sendRedirect("Controller?command=gotomainpage&message=Error " + e.getMessage());	
 		}
 	}
 

@@ -62,5 +62,34 @@ public class User  implements Serializable{
 		this.role = role;
 	}
 	
-	
+	 @Override
+	    public int hashCode() {
+			int result = 1;
+		 	result = 31 * result + (( login == null) ? 0 : login.hashCode());
+	        return result;
+	    }
+
+	    @Override
+	    public boolean equals(Object obj) {
+	        if (obj == this) {
+	            return true;
+	        }
+
+	        if (!(obj instanceof News)) {
+				return false;
+			}
+
+	        User user = (User) obj;
+
+	        return login != null && login.equals(user.login);
+	    }
+
+	    @Override
+	    public String toString() {
+	    	return "login: " + this.login + "\n" +
+		            "password:" + this.password + "\n" +
+					"email: " + this.email + "\n" + 
+					"nickname: " + this.nickname + "\n" + 
+					"role: " + this.role;
+	    }
 }

@@ -122,8 +122,8 @@ public class SQLNewsDAO implements NewsDAO {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/news_management?useSSL=false&serverTimezone=UTC"+
 					"","root", "1111");
 			st = con.createStatement();
-		//	String query = "UPDATE news SET status = 'not active' WHERE id=" + id;
-			String query = "DELETE FROM news WHERE id=" + id;
+			String query = "UPDATE news SET status = 'inactive' WHERE id=" + id;
+
 			st.executeUpdate(query);
 			
 		}catch (SQLException e) {

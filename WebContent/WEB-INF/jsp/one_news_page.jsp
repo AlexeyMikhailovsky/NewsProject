@@ -20,7 +20,7 @@
 						</form>
 					</td>
 					
-					<c:if test = "${sessionScope.role eq \"admin\"}">
+					<c:if test="${sessionScope.role eq \"admin\"}">
 						<td>
 							<form action="Controller" method="get">
       						<input type="hidden" name="command" value="gotoeditpage" />

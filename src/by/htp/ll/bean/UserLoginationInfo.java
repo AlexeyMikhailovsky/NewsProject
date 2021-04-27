@@ -31,4 +31,32 @@ public class UserLoginationInfo implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = 31 * result + (( login == null) ? 0 : login.hashCode());
+        return result;    	    
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof News)) {
+			return false;
+		}
+			
+		UserLoginationInfo userLoginationInfo = (UserLoginationInfo) obj;
+
+		return login != null && login.equals(userLoginationInfo.login);
+	}
+
+	@Override
+	public String toString() {
+		return "login: " + this.login+ "\n" +
+	           "password:" + this.password + "\n";
+	}
 }

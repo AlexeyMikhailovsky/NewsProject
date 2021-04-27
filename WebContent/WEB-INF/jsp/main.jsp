@@ -9,7 +9,7 @@ charset=utf-8" pageEncoding="utf-8" import="java.util.List, by.htp.ll.bean.News"
 </head>
 <body>
 <h1 align="center">
-	!!! Welcome !!!
+	!!! Welcome, <c:out value="${sessionScope.name}" />!!!
 </h1>
 
 <br/>

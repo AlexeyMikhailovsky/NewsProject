@@ -1,4 +1,4 @@
-package by.htp.ll.bean;
+	package by.htp.ll.bean;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -72,17 +72,21 @@ public class News implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + (( title == null) ? 0 : title.hashCode());
+		result = 31 * result + id;
+		result = 31 * result + (( title == null) ? 0 : title.hashCode());
         return result;    	    
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (!(obj instanceof News)) return false;
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof News)) {
+			return false;
+		}
 			
 		News news = (News) obj;
 		return news.id == id && news.title.equals(title);

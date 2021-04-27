@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
+<link href="${pageContext.request.contextPath}/css/main_index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<%

@@ -47,5 +47,32 @@ public class RegistrationInfo implements Serializable{
 		this.nickname = nickname;
 	}
 
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = 31 * result + (( login == null) ? 0 : login.hashCode());
+        return result;    	    
+	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof News)) {
+			return false;
+		}
+			
+		RegistrationInfo registrationInfo = (RegistrationInfo) obj;
+		return login != null && login.equals(registrationInfo.login);
+	}
+		
+	@Override
+	public String toString() {	
+		return "login: " + this.login + "\n" +
+				"password:" + this.password + "\n" +
+	            "email:" + this.email + "\n" +
+				"nickname: " + this.nickname + "\n";
+	}
 }
